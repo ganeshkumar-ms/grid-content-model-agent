@@ -1,15 +1,32 @@
+/* Hide scrollbars while preserving scrolling */
+* {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
 :root {
-  --bg: #0b1002;
-  --panel: #162204;
-  --panel-strong: #1e3006;
-  --line: rgba(183, 255, 0, 0.15);
-  --line-strong: rgba(183, 255, 0, 0.35);
-  --text: #f7f7fb;
-  --muted: #8c9b78;
-  --a1: #b7ff00;
-  --a2: #365900;
-  --amber: #b7ff00;
-  --dark-gold: #365900;
+  --bg: #020c16;
+  --panel: #051a2c;
+  --panel-strong: #0a253e;
+  --panel-elevated: #0a253e;
+  --panel-alt: #081e33;
+  --line: rgba(7, 140, 255, 0.18);
+  --line-strong: rgba(7, 140, 255, 0.4);
+  --text: #f0f7ff;
+  --muted: #849bb4;
+  --a1: #078cff;
+  --a1-bright: #38bdf8;
+  --a2: #0a3154;
+  --cyan: #38bdf8;
+  --success: #34d399;
+  --card-bg: rgba(5, 26, 44, 0.85);
+  --v: #078cff;
+  --c: #38bdf8;
 }
 
 * {
@@ -41,11 +58,11 @@ html, body, #root {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(183, 255, 0, 0.22);
+  background: rgba(7, 140, 255, 0.22);
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(183, 255, 0, 0.45);
+  background: rgba(7, 140, 255, 0.45);
 }
 
 button, input {
@@ -69,7 +86,7 @@ button, input {
   height: 100%;
   position: relative;
   background:
-    radial-gradient(circle at 50% -10%, rgba(183, 255, 0, 0.16), transparent 42%),
+    radial-gradient(circle at 50% -10%, rgba(7, 140, 255, 0.16), transparent 42%),
     radial-gradient(circle at 95% 90%, rgba(54, 89, 0, 0.2), transparent 36%),
     var(--bg);
   overflow: hidden;
@@ -97,7 +114,7 @@ button, input {
   inset: -35%;
   pointer-events: none;
   background:
-    radial-gradient(circle at 26% 25%, rgba(183, 255, 0, 0.14), transparent 26%),
+    radial-gradient(circle at 26% 25%, rgba(7, 140, 255, 0.14), transparent 26%),
     radial-gradient(circle at 78% 70%, rgba(54, 89, 0, 0.18), transparent 28%);
   animation: drift 16s ease-in-out infinite alternate;
 }
@@ -153,7 +170,7 @@ header {
   justify-content: center;
   gap: 7px;
   border: 1px solid var(--line);
-  background: rgba(183, 255, 0, 0.08);
+  background: rgba(7, 140, 255, 0.08);
   color: #dbe8cb;
   border-radius: 999px;
   padding: 8px 18px;
@@ -169,8 +186,8 @@ header {
   transform: translateY(-2px);
   color: #fff;
   border-color: #b7ff00;
-  background: rgba(183, 255, 0, 0.18);
-  box-shadow: 0 8px 24px rgba(183, 255, 0, 0.28);
+  background: rgba(7, 140, 255, 0.18);
+  box-shadow: 0 8px 24px rgba(7, 140, 255, 0.28);
 }
 
 /* Hero Section */
@@ -279,7 +296,7 @@ header {
   background: #b7ff00;
   cursor: pointer;
   transition: all 0.25s;
-  box-shadow: 0 8px 28px rgba(183, 255, 0, 0.35);
+  box-shadow: 0 8px 28px rgba(7, 140, 255, 0.35);
   display: grid;
   place-items: center;
   flex-shrink: 0;
@@ -287,7 +304,7 @@ header {
 
 .send:hover, .chatSend:hover {
   transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 10px 32px rgba(183, 255, 0, 0.5);
+  box-shadow: 0 10px 32px rgba(7, 140, 255, 0.5);
 }
 
 .startAttach, .plus {
@@ -322,8 +339,8 @@ header {
   max-width: 730px;
   margin: 12px auto 0;
   padding: 8px 14px;
-  background: rgba(183, 255, 0, 0.12);
-  border: 1px solid rgba(183, 255, 0, 0.35);
+  background: rgba(7, 140, 255, 0.12);
+  border: 1px solid rgba(7, 140, 255, 0.35);
   border-radius: 10px;
   font-size: 12px;
   color: #edf5db;
@@ -383,9 +400,9 @@ header {
 }
 
 .card:hover {
-  border-color: rgba(183, 255, 0, 0.45);
+  border-color: rgba(7, 140, 255, 0.45);
   background: var(--panel-strong);
-  box-shadow: 0 8px 24px rgba(183, 255, 0, 0.12);
+  box-shadow: 0 8px 24px rgba(7, 140, 255, 0.12);
 }
 
 .card small {
@@ -428,7 +445,7 @@ header {
   justify-content: center;
   border-radius: 12px;
   background: rgba(22, 34, 4, 0.45);
-  border: 1px dashed rgba(183, 255, 0, 0.25);
+  border: 1px dashed rgba(7, 140, 255, 0.25);
   gap: 3px;
 }
 
@@ -495,8 +512,8 @@ header {
 }
 
 .new {
-  border: 1px solid rgba(183, 255, 0, 0.45);
-  background: rgba(183, 255, 0, 0.1);
+  border: 1px solid rgba(7, 140, 255, 0.45);
+  background: rgba(7, 140, 255, 0.1);
   color: #b7ff00;
   border-radius: 12px;
   padding: 10px 14px;
@@ -515,7 +532,7 @@ header {
 }
 
 .new:hover {
-  background: rgba(183, 255, 0, 0.2);
+  background: rgba(7, 140, 255, 0.2);
   transform: translateY(-1px);
 }
 
@@ -562,7 +579,7 @@ header {
 }
 
 .histRow:hover, .histRow.on {
-  background: rgba(183, 255, 0, 0.12);
+  background: rgba(7, 140, 255, 0.12);
 }
 
 .histRow.editing, .histRow.confirm {
@@ -642,7 +659,7 @@ header {
 .histActionBtn:hover {
   opacity: 1;
   color: #ffffff;
-  background: rgba(183, 255, 0, 0.22);
+  background: rgba(7, 140, 255, 0.22);
 }
 
 .histActionBtn.danger {
@@ -741,7 +758,7 @@ header {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background: radial-gradient(circle at 50% 0%, rgba(183, 255, 0, 0.05), transparent 45%);
+  background: radial-gradient(circle at 50% 0%, rgba(7, 140, 255, 0.05), transparent 45%);
 }
 
 .chatHead {
@@ -846,7 +863,7 @@ header {
 .bubble.user {
   align-self: flex-end;
   background: linear-gradient(135deg, #2b3d06, #162204);
-  border: 1px solid rgba(183, 255, 0, 0.3);
+  border: 1px solid rgba(7, 140, 255, 0.3);
   border-radius: 18px 18px 4px 18px;
   color: #edf5db;
 }
@@ -867,7 +884,7 @@ header {
 /* User Attached Document Badge */
 .userFileCard {
   background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(183, 255, 0, 0.3);
+  border: 1px solid rgba(7, 140, 255, 0.3);
   border-radius: 12px;
   padding: 9px 12px;
   margin-bottom: 8px;
@@ -924,8 +941,8 @@ header {
 }
 
 .userFileViewBtn {
-  background: rgba(183, 255, 0, 0.18);
-  border: 1px solid rgba(183, 255, 0, 0.4);
+  background: rgba(7, 140, 255, 0.18);
+  border: 1px solid rgba(7, 140, 255, 0.4);
   color: #b7ff00;
   border-radius: 8px;
   padding: 4px 10px;
@@ -1001,8 +1018,8 @@ header {
 
 .composer:focus-within {
   transform: translateY(-2px);
-  border-color: rgba(183, 255, 0, 0.5);
-  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.7), 0 0 32px rgba(183, 255, 0, 0.15);
+  border-color: rgba(7, 140, 255, 0.5);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.7), 0 0 32px rgba(7, 140, 255, 0.15);
 }
 
 .composer form {
@@ -1053,7 +1070,7 @@ header {
 
 .gridScoreHeader {
   padding: 14px 16px;
-  background: rgba(183, 255, 0, 0.05);
+  background: rgba(7, 140, 255, 0.05);
   border: 1px solid var(--line);
   border-radius: 14px;
 }
@@ -1077,9 +1094,9 @@ header {
 }
 
 .gridStatusBadge.statusOptimal {
-  background: rgba(183, 255, 0, 0.15);
+  background: rgba(7, 140, 255, 0.15);
   color: #b7ff00;
-  border: 1px solid rgba(183, 255, 0, 0.4);
+  border: 1px solid rgba(7, 140, 255, 0.4);
 }
 
 .gridStatusBadge.statusWarn {
@@ -1228,8 +1245,8 @@ header {
 }
 
 .gridTabBtn.on {
-  background: rgba(183, 255, 0, 0.12);
-  border-color: rgba(183, 255, 0, 0.35);
+  background: rgba(7, 140, 255, 0.12);
+  border-color: rgba(7, 140, 255, 0.35);
   color: #b7ff00;
 }
 
@@ -1268,8 +1285,8 @@ header {
   font-size: 10.5px;
   padding: 3px 8px;
   border-radius: 999px;
-  background: rgba(183, 255, 0, 0.15);
-  border: 1px solid rgba(183, 255, 0, 0.35);
+  background: rgba(7, 140, 255, 0.15);
+  border: 1px solid rgba(7, 140, 255, 0.35);
   color: #b7ff00;
   font-weight: 700;
   text-transform: uppercase;
@@ -1329,7 +1346,7 @@ header {
 
 .fieldKeyCell code {
   color: #b7ff00;
-  background: rgba(183, 255, 0, 0.08);
+  background: rgba(7, 140, 255, 0.08);
   padding: 2px 6px;
   border-radius: 4px;
   font-family: 'JetBrains Mono', monospace;
@@ -1368,9 +1385,9 @@ header {
 }
 
 .flagTag.loc {
-  background: rgba(183, 255, 0, 0.12);
+  background: rgba(7, 140, 255, 0.12);
   color: #b7ff00;
-  border: 1px solid rgba(183, 255, 0, 0.3);
+  border: 1px solid rgba(7, 140, 255, 0.3);
 }
 
 /* Tab 2: Schema Payload */
@@ -1393,8 +1410,8 @@ header {
 }
 
 .copyPayloadBtn {
-  background: rgba(183, 255, 0, 0.15);
-  border: 1px solid rgba(183, 255, 0, 0.4);
+  background: rgba(7, 140, 255, 0.15);
+  border: 1px solid rgba(7, 140, 255, 0.4);
   color: #b7ff00;
   border-radius: 8px;
   padding: 5px 12px;
@@ -1444,8 +1461,8 @@ header {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: rgba(183, 255, 0, 0.15);
-  border: 1px solid rgba(183, 255, 0, 0.4);
+  background: rgba(7, 140, 255, 0.15);
+  border: 1px solid rgba(7, 140, 255, 0.4);
   color: #b7ff00;
   display: grid;
   place-items: center;
@@ -1536,7 +1553,7 @@ header {
 }
 
 .docViewerBtn:hover, .docViewerCloseBtn:hover {
-  background: rgba(183, 255, 0, 0.2);
+  background: rgba(7, 140, 255, 0.2);
   color: #fff;
 }
 
@@ -1664,7 +1681,7 @@ header {
     gap: 6px;
     padding: 7px 12px;
     border: 1px solid var(--line);
-    background: rgba(183, 255, 0, 0.08);
+    background: rgba(7, 140, 255, 0.08);
     color: #b7ff00;
     border-radius: 8px;
     font-size: 12px;
@@ -1742,7 +1759,7 @@ header {
   background: rgba(15, 24, 3, 0.84) !important;
   backdrop-filter: blur(12px) saturate(150%) !important;
   -webkit-backdrop-filter: blur(12px) saturate(150%) !important;
-  border: 1px solid rgba(183, 255, 0, 0.36) !important;
+  border: 1px solid rgba(7, 140, 255, 0.36) !important;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.48) !important;
 }
 .histIcon,
@@ -1770,13 +1787,13 @@ header {
 .histIcon.edit,
 .histActionBtn:not(.danger) {
   color: #dcff80 !important;
-  background: rgba(183, 255, 0, 0.20) !important;
-  border: 1px solid rgba(183, 255, 0, 0.45) !important;
+  background: rgba(7, 140, 255, 0.20) !important;
+  border: 1px solid rgba(7, 140, 255, 0.45) !important;
 }
 .histIcon.edit:hover,
 .histActionBtn:not(.danger):hover {
   color: #ffffff !important;
-  background: rgba(183, 255, 0, 0.38) !important;
+  background: rgba(7, 140, 255, 0.38) !important;
   border-color: #b7ff00 !important;
   transform: scale(1.04);
 }
