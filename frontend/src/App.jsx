@@ -315,11 +315,14 @@ export default function App() {
         content: m.role === 'user' ? m.content : (m.data?.model_readiness?.summary || m.data?.message || m.content || '')
       }))
 
-      const response = await modelContent({
-        file: fileToSend,
-        text: cleanText,
-        conversationHistory
-      })
+      const [response] = await Promise.all([
+        modelContent({
+          file: fileToSend,
+          text: cleanText,
+          conversationHistory
+        }),
+        new Promise(res => setTimeout(res, 900))
+      ])
 
       if (response.document && userMsg.file) {
         userMsg.docMeta = response.document
@@ -611,7 +614,7 @@ export default function App() {
                   // AI Response: Dual mode routing
                   return (
                     <div key={msg.id} className="bubble ai">
-                      <GridResultCard data={msg.data} onOpenDoc={() => openDocument(msg)} />
+                      <GridResultCard data={msg.data} guardrails={msg.data?.guardrails || msg.guardrails} onOpenDoc={() => openDocument(msg)} />
                     </div>
                   )
                 })}

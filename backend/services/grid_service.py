@@ -1,3 +1,5 @@
+import datetime
+import uuid
 import boto3
 import json
 import os
@@ -363,11 +365,18 @@ def model_content(
     # 1. Guardrail check
     guard_res = guardrail_service.inspect_and_sanitize(content or file_name, is_document=bool(file_name))
     if guard_res.get('blocked'):
+        trace_code = f"GRD-{datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%d')}-{uuid.uuid4().hex[:6].upper()}"
         return {
             "type": "chat",
             "message": guard_res.get('message', 'Content blocked by enterprise security guardrails.'),
-            "guardrails": guard_res.get('guardrails'),
+            "guardrail_status": "BLOCKED",
+            "guardrails": guard_res.get('guardrails', {"status": "BLOCKED"}),
             "rejected": True,
+            "trace_id": trace_code,
+            "data": {
+                "trace_id": trace_code,
+                "guardrails": guard_res.get('guardrails', {"status": "BLOCKED"}),
+            }
         }
 
     # 2. Rapid typo / conversational check (instant response, zero Bedrock call)
@@ -434,6 +443,14 @@ def model_content(
             output_text = re.sub(r'\s*```$', '', output_text)
 
         parsed = json.loads(output_text)
+        trace_code = f"GRD-{datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%d')}-{uuid.uuid4().hex[:6].upper()}"
+        parsed['trace_id'] = trace_code
+        parsed['guardrails'] = {
+            "status": "REDACTED" if guard_res.get("has_redactions") else "PASSED",
+            "pci_dss_sanitized": True,
+            "redacted_count": guard_res.get("guardrails", {}).get("redacted_count", 0),
+            "redacted_types": guard_res.get("guardrails", {}).get("redacted_types", []),
+        }
         return parsed
 
     except Exception as e:
