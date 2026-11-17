@@ -249,8 +249,9 @@ header {
 }
 
 .promptGlow {
-  max-width: 820px;
-  margin: auto;
+  width: 100% !important;
+  max-width: 780px !important;
+  margin: 0 auto !important;
   position: relative;
   animation: rise 1s 0.17s both;
 }
@@ -271,6 +272,8 @@ header {
 }
 
 .prompt {
+  width: 100% !important;
+  box-sizing: border-box !important;
   position: relative;
   padding: 9px;
   display: flex;
