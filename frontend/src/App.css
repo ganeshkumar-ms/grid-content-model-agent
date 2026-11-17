@@ -87,7 +87,7 @@ button, input {
   position: relative;
   background:
     radial-gradient(circle at 50% -10%, rgba(7, 140, 255, 0.16), transparent 42%),
-    radial-gradient(circle at 95% 90%, rgba(54, 89, 0, 0.2), transparent 36%),
+    radial-gradient(circle at 95% 90%, rgba(7, 140, 255, 0.08), transparent 36%),
     var(--bg);
   overflow: hidden;
 }
@@ -115,7 +115,7 @@ button, input {
   pointer-events: none;
   background:
     radial-gradient(circle at 26% 25%, rgba(7, 140, 255, 0.14), transparent 26%),
-    radial-gradient(circle at 78% 70%, rgba(54, 89, 0, 0.18), transparent 28%);
+    radial-gradient(circle at 78% 70%, rgba(7, 140, 255, 0.08), transparent 28%);
   animation: drift 16s ease-in-out infinite alternate;
 }
 
@@ -140,7 +140,7 @@ header {
   font-size: 21px;
   font-weight: 800;
   letter-spacing: 6px;
-  background: linear-gradient(90deg, #fff, #078cff, #365900);
+  background: linear-gradient(90deg, #fff, #078cff, #38bdf8);
   background-size: 200% auto;
   -webkit-background-clip: text;
   color: transparent;
@@ -171,7 +171,7 @@ header {
   gap: 7px;
   border: 1px solid var(--line);
   background: rgba(7, 140, 255, 0.08);
-  color: #dbe8cb;
+  color: #cbd5e1;
   border-radius: 999px;
   padding: 8px 18px;
   font-size: 11.5px;
@@ -222,7 +222,7 @@ header {
 }
 
 .home h1 span {
-  background: linear-gradient(95deg, #078cff, #ddff88, #fff);
+  background: linear-gradient(95deg, #078cff, #38bdf8, #fff);
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -249,7 +249,7 @@ header {
   position: absolute;
   inset: -3px;
   border-radius: 25px;
-  background: conic-gradient(from 0deg, transparent 40%, #078cff, transparent 56%, #365900, transparent 72%);
+  background: conic-gradient(from 0deg, transparent 40%, #078cff, transparent 56%, #38bdf8, transparent 72%);
   filter: blur(10px);
   opacity: 0.35;
   animation: spin 8s linear infinite;
@@ -267,7 +267,7 @@ header {
   align-items: center;
   border: 1px solid var(--line-strong);
   border-radius: 23px;
-  background: rgba(22, 34, 4, 0.94);
+  background: #051a2c;
   box-shadow: 0 25px 90px rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(22px);
 }
@@ -439,15 +439,13 @@ header {
 
 .card.emptyCard {
   grid-column: 1 / -1;
-  max-width: 360px;
   width: 100%;
-  margin: 0 auto;
   padding: 12px 18px;
   text-align: center;
   align-items: center;
   justify-content: center;
   border-radius: 12px;
-  background: rgba(22, 34, 4, 0.45);
+  background: rgba(5, 26, 44, 0.5);
   border: 1px dashed rgba(7, 140, 255, 0.25);
   gap: 3px;
 }
@@ -496,7 +494,7 @@ header {
 /* Sidebar */
 .side {
   border-right: 1px solid var(--line);
-  background: rgba(11, 16, 2, 0.95);
+  background: #051a2c;
   backdrop-filter: blur(24px);
   padding: 20px 14px;
   display: flex;
@@ -592,7 +590,7 @@ header {
 .histTitle {
   background: transparent;
   border: 0;
-  color: #dbe8cb;
+  color: #cbd5e1;
   text-align: left;
   font-size: 13px;
   white-space: nowrap;
@@ -881,7 +879,7 @@ header {
 
 .bubble.ai {
   align-self: flex-start;
-  background: rgba(22, 34, 4, 0.85);
+  background: rgba(5, 26, 44, 0.85);
   border: 1px solid var(--line);
   border-radius: 18px 18px 18px 4px;
   backdrop-filter: blur(18px);
@@ -1009,7 +1007,7 @@ header {
 /* Composer Area */
 .composerArea {
   padding: 12px clamp(18px, 6vw, 80px) 22px;
-  background: linear-gradient(to top, rgba(11, 16, 2, 0.95), transparent);
+  background: linear-gradient(to top, #051a2c, transparent);
 }
 
 .composer {
@@ -1018,7 +1016,7 @@ header {
   padding: 8px;
   border: 1px solid var(--line);
   border-radius: 20px;
-  background: rgba(22, 34, 4, 0.92);
+  background: #051a2c;
   box-shadow: 0 16px 55px rgba(0, 0, 0, 0.5);
   transition: all 0.3s;
 }
@@ -1107,9 +1105,9 @@ header {
 }
 
 .gridStatusBadge.statusWarn {
-  background: rgba(212, 255, 102, 0.15);
-  color: #d4ff66;
-  border: 1px solid rgba(212, 255, 102, 0.4);
+  background: rgba(250, 204, 21, 0.15);
+  color: #facc15;
+  border: 1px solid rgba(250, 204, 21, 0.45);
 }
 
 .gridStatusBadge.statusDanger {
@@ -1161,7 +1159,7 @@ header {
   margin: 0;
   font-size: 14px;
   line-height: 1.55;
-  color: #edf5db;
+  color: #f0f7ff;
 }
 
 /* Sleek Findings Ribbon (Zero bulky boxes!) */
@@ -1205,7 +1203,7 @@ header {
 
 .metricDot.types { background: #078cff; box-shadow: 0 0 6px #078cff; }
 .metricDot.comp { background: #64dbff; box-shadow: 0 0 6px #64dbff; }
-.metricDot.links { background: #d4ff66; box-shadow: 0 0 6px #d4ff66; }
+.metricDot.links { background: #38bdf8; box-shadow: 0 0 6px #38bdf8; }
 .metricDot.tier { background: #078cff; box-shadow: 0 0 6px #078cff; }
 
 .metricLabel {
@@ -1306,7 +1304,7 @@ header {
 
 .typeRefPill {
   font-size: 11.5px;
-  color: #8c9b78;
+  color: #849bb4;
   background: rgba(255, 255, 255, 0.04);
   padding: 3px 10px;
   border-radius: 6px;
@@ -1335,7 +1333,7 @@ header {
 .gridFieldsTable th {
   text-align: left;
   padding: 8px 10px;
-  color: #8c9b78;
+  color: #849bb4;
   font-size: 11px;
   letter-spacing: 0.5px;
   border-bottom: 1px solid var(--line);
@@ -1348,7 +1346,7 @@ header {
 }
 
 .fieldLabelCell b {
-  color: #edf5db;
+  color: #f0f7ff;
 }
 
 .fieldKeyCell code {
@@ -1435,14 +1433,14 @@ header {
 }
 
 .gridPayloadPre {
-  background: #080c01;
+  background: #03101c;
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 14px;
   overflow-x: auto;
   font-size: 12.5px;
   line-height: 1.5;
-  color: #d4ff66;
+  color: #38bdf8;
   font-family: 'JetBrains Mono', monospace;
   margin: 0;
 }
@@ -1482,7 +1480,7 @@ header {
   margin: 0;
   font-size: 13.5px;
   line-height: 1.5;
-  color: #edf5db;
+  color: #f0f7ff;
 }
 
 .gridEmptyTab {
@@ -1495,7 +1493,7 @@ header {
 /* Document Viewer Side-by-Side */
 .docViewer {
   border-left: 1px solid var(--line);
-  background: rgba(11, 16, 2, 0.95);
+  background: #051a2c;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -1627,7 +1625,7 @@ header {
   padding: 14px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
-  color: #d4ff66;
+  color: #38bdf8;
   white-space: pre-wrap;
   margin: 0;
 }
@@ -1763,7 +1761,7 @@ header {
   padding: 3px !important;
   gap: 4px !important;
   border-radius: 9px !important;
-  background: rgba(15, 24, 3, 0.84) !important;
+  background: #051a2c !important;
   backdrop-filter: blur(12px) saturate(150%) !important;
   -webkit-backdrop-filter: blur(12px) saturate(150%) !important;
   border: 1px solid rgba(7, 140, 255, 0.36) !important;
@@ -2151,4 +2149,103 @@ html, body {
     font-size: 11px !important;
     padding: 7px 10px !important;
   }
+}
+
+/* Structured File Rejection Card */
+.gridRejectionCard {
+  background: rgba(5, 26, 44, 0.95);
+  border: 1px solid rgba(239, 68, 68, 0.45);
+  border-radius: 16px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.gridRejectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 12px;
+}
+
+.gridRejectionBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: rgba(239, 68, 68, 0.16);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.45);
+}
+
+.gridRejectionFile {
+  font-size: 12px;
+  color: #cbd5e1;
+  background: rgba(7, 140, 255, 0.08);
+  border: 1px solid rgba(7, 140, 255, 0.22);
+  padding: 4px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 320px;
+}
+
+.gridRejectionBody {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rejectionSection {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rejectionLabel {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #38bdf8;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.rejectionValue {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #e2e8f0;
+}
+
+.rejectionValue.mono {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: #cbd5e1;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.rejectionSection.fixSection {
+  background: rgba(7, 140, 255, 0.08);
+  border: 1px solid rgba(7, 140, 255, 0.25);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.rejectionSection.fixSection .rejectionLabel {
+  color: #34d399;
 }

@@ -464,9 +464,11 @@ export default function App() {
             </div>
 
             {selectedFile && (
-              <div className="filePill">
-                <span>Attached: {selectedFile.name} ({(selectedFile.size / 1024).toFixed(1)} KB)</span>
-                <button onClick={() => setSelectedFile(null)}>✕</button>
+              <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                <div className="filePill">
+                  <span>Attached: {selectedFile.name} ({(selectedFile.size / 1024).toFixed(1)} KB)</span>
+                  <button onClick={() => setSelectedFile(null)}>✕</button>
+                </div>
               </div>
             )}
 
@@ -668,9 +670,11 @@ export default function App() {
                   </form>
                 </div>
                 {selectedFile && (
-                  <div className="filePill" style={{ maxWidth: 840, margin: "8px auto 0", display: "flex", justifyContent: "center" }}>
-                    <span>Attached: {selectedFile.name} ({(selectedFile.size / 1024).toFixed(1)} KB)</span>
-                    <button onClick={() => setSelectedFile(null)}>✕</button>
+                  <div style={{ display: 'flex', justifyContent: 'center', width: '100%', margin: '8px auto 0' }}>
+                    <div className="filePill">
+                      <span>Attached: {selectedFile.name} ({(selectedFile.size / 1024).toFixed(1)} KB)</span>
+                      <button onClick={() => setSelectedFile(null)}>✕</button>
+                    </div>
                   </div>
                 )}
                 <div className="fine">
