@@ -82,14 +82,14 @@ button, input {
 }
 
 .app {
-  min-height: 100dvh;
-  height: 100%;
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
   position: relative;
   background:
     radial-gradient(circle at 50% -10%, rgba(7, 140, 255, 0.16), transparent 42%),
     radial-gradient(circle at 95% 90%, rgba(7, 140, 255, 0.08), transparent 36%),
     var(--bg);
-  overflow: hidden;
 }
 
 .app:after {
@@ -125,15 +125,22 @@ button, input {
 
 /* Header */
 header {
-  height: 76px;
-  padding: 0 clamp(18px, 4vw, 42px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--line);
-  backdrop-filter: blur(18px);
-  position: relative;
-  z-index: 10;
+  height: 76px !important;
+  min-height: 76px !important;
+  max-height: 76px !important;
+  padding: 0 clamp(18px, 4vw, 42px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  border-bottom: 1px solid var(--line) !important;
+  background: rgba(5, 26, 44, 0.72) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10 !important;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
 }
 
 .word {
@@ -156,10 +163,9 @@ header {
 #home {
   position: relative;
   z-index: 2;
-  height: 100dvh;
-  overflow-y: scroll; /* Keep scrollbar track always stable to prevent layout flickering */
-  overflow-x: hidden;
-  scrollbar-gutter: stable;
+  height: 100%;
+  min-height: 100dvh;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
 }
@@ -195,9 +201,14 @@ header {
   position: relative;
   z-index: 2;
   max-width: 1080px;
-  margin: auto;
-  padding: clamp(52px, 9vh, 84px) 20px 48px;
+  margin: 0 auto;
+  padding: clamp(36px, 6vh, 60px) 20px 48px;
   width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
 }
 
 .eyebrow {
