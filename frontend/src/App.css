@@ -125,7 +125,7 @@ button, input {
 
 /* Header */
 header {
-  height: 68px;
+  height: 76px;
   padding: 0 clamp(18px, 4vw, 42px);
   display: flex;
   align-items: center;
@@ -1922,8 +1922,8 @@ html, body {
   }
   #home header,
   .homePage header {
-    height: 58px !important;
-    padding: 0 14px !important;
+    height: 72px !important;
+    padding: 0 18px !important;
     gap: 10px;
   }
   .word {
@@ -2141,8 +2141,8 @@ html, body {
 @media (max-width: 420px) {
   #home header,
   .homePage header {
-    height: 54px !important;
-    padding: 0 12px !important;
+    height: 68px !important;
+    padding: 0 16px !important;
   }
   .word {
     font-size: 16px !important;
