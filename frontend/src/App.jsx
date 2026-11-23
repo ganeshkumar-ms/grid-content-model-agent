@@ -560,7 +560,7 @@ export default function App() {
                     type="button"
                     onClick={() => setSidebarOpen(!sidebarOpen)}
                   >
-                    <span>ARCHITECTURES</span>
+                    <span>RECENT</span>
                   </button>
                   <button
                     className="ghost"
