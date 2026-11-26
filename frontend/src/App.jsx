@@ -154,7 +154,7 @@ export default function App() {
 
   const [currentSessionId, setCurrentSessionId] = useState(null)
   const [messages, setMessages] = useState([])
-  const [title, setTitle] = useState('New Architecture')
+  const [title, setTitle] = useState('New conversation')
   const [editingTitle, setEditingTitle] = useState(false)
   const [titleDraft, setTitleDraft] = useState('')
   const [inputVal, setInputVal] = useState('')
@@ -196,7 +196,7 @@ export default function App() {
   function handleNewChat() {
     setCurrentSessionId(null)
     setMessages([])
-    setTitle('New Architecture')
+    setTitle('New conversation')
     setEditingTitle(false)
     setTitleDraft('')
     setSelectedFile(null)
@@ -207,7 +207,7 @@ export default function App() {
   function handleLoadSession(session) {
     setCurrentSessionId(session.id)
     setMessages(session.messages || [])
-    setTitle(session.title || 'New Architecture')
+    setTitle(session.title || 'New conversation')
     setEditingTitle(false)
     setTitleDraft('')
     setSelectedFile(null)
@@ -235,9 +235,16 @@ export default function App() {
   }
 
   function handleDeleteSession(id) {
-    setSessions(prev => prev.filter(s => s.id !== id))
+    const idx = sessions.findIndex(s => s.id === id)
+    const remaining = sessions.filter(s => s.id !== id)
+    setSessions(remaining)
     if (currentSessionId === id) {
-      handleNewChat()
+      if (remaining.length > 0) {
+        const nextSess = remaining[idx >= 0 && idx < remaining.length ? idx : remaining.length - 1]
+        handleLoadSession(nextSess)
+      } else {
+        handleNewChat()
+      }
     }
   }
 
@@ -549,7 +556,7 @@ export default function App() {
                         setEditingTitle(true)
                       }}
                     >
-                      {title || 'New Architecture'}
+                      {title || 'New conversation'}
                     </b>
                   )}
                   <small>CONTENT MODEL WORKSPACE</small>
@@ -579,9 +586,20 @@ export default function App() {
 
               {/* Messages Container */}
               <div className="messages">
-                {messages.length === 0 && (
-                  <div style={{ textAlign: 'center', color: 'var(--muted)', marginTop: 40, fontSize: 14 }}>
-                    Send a message or attach a content file/schema to begin Content Architecture with GRID.
+                {messages.length === 0 && !loading && (
+                  <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', color: '#849bb4', maxWidth: '520px', margin: '0 auto', padding: '24px' }}>
+                    <div style={{ display: 'inline-flex', padding: '13px', borderRadius: '14px', background: 'rgba(7, 140, 255, 0.1)', border: '1px solid rgba(7, 140, 255, 0.25)', color: '#38bdf8', marginBottom: '14px' }}>
+                      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                        <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                        <rect x="3" y="14" width="7" height="7" rx="1.5" />
+                        <rect x="14" y="14" width="7" height="7" rx="1.5" />
+                      </svg>
+                    </div>
+                    <b style={{ display: 'block', color: '#fff', fontSize: '18px' }}>Start a new content model with GRID</b>
+                    <p style={{ fontSize: '14.5px', lineHeight: '1.65', marginTop: '10px', marginBottom: 0 }}>
+                      Share a page specification, template, or content draft below to decompose monolithic layouts into reusable atomic components, relational links, and JSON Schemas.
+                    </p>
                   </div>
                 )}
 
